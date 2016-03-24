@@ -4,7 +4,7 @@
 *UICollectionView*是一种新的数据展示方式，简单来说可以把他理解成多列的*UITableView*。它有许多与*UITableView*相同的地方，例如：数据源、代理等接口等。既然，*UITableView*有这么多的相似之处，为什么还要学习*CollectionView*呢？作为一个独立的控件，*CollectionView*有着自己独特的**布局**特性，这一点拉开了两个控件的差距，所以学习*UIcollectionView*还是非常有必要的。
 ## UICollectionView 组成
 ---
-![图片](/Users/Silence/Pictures/25768411-78F1-445F-B85C-4E658E985109.png)
+![image](https://github.com/Silence--Thinker/UICollectionViewLayout/blob/master/image.png?raw=true)
 
 如图：你看到的就是一个最简单的*UICollectionView*，它包含：Cells、Supplementary Views、Decoration Views。
 
