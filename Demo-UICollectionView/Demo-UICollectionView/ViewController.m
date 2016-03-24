@@ -40,9 +40,38 @@
 
     SupplementaryView *supplementaryView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"SupplementaryView" forIndexPath:indexPath];
     supplementaryView.label.text = @"SupplementaryView";
-    supplementaryView.backgroundColor = [UIColor redColor];
+    supplementaryView.backgroundColor = [UIColor orangeColor];
     return supplementaryView;
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s", __func__);
+    return YES;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s", __func__);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s", __func__);
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s", __func__);
+    return NO;
+}
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s", __func__);
+    return YES;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s", __func__);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s", __func__);
+}
 
 @end

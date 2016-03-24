@@ -56,9 +56,7 @@ static NSString * const kCricleCell = @"CricleCell";
             self.cellCount = self.cellCount + 1;
             [self.collectionView performBatchUpdates:^{
                 [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
-            } completion:^(BOOL finished) {
-//                NSLog(@"%s", __func__);
-            }];
+            } completion:nil];
         
         }
     }
