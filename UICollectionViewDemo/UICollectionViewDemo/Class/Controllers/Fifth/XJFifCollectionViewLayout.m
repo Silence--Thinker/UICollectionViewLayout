@@ -41,18 +41,22 @@
     
     NSInteger section = [self.collectionView numberOfSections];
     for (NSInteger i = 0; i < section; i++) {
-        BOOL always = self.alwaysHeaderTop(i);
+        BOOL always = self.alwaysHeaderTop ? self.alwaysHeaderTop(i) : NO;
         CGFloat headerHeight = 0;
         CGFloat footerHeight = 0;
         if ([self.delegate respondsToSelector:@selector(layout:sectionHeaderHeight:)]) {
             headerHeight = [self.delegate layout:self sectionHeaderHeight:i];
-            _sectionHeaderHeightDict[@(i)] = @(headerHeight);
+        } else{
+            headerHeight = self.sectionHeaderHeight ? self.sectionHeaderHeight(i) : 0;
         }
+        _sectionHeaderHeightDict[@(i)] = @(headerHeight);
         
         if ([self.delegate respondsToSelector:@selector(layout:sectionFooterHeight:)]) {
             footerHeight = [self.delegate layout:self sectionFooterHeight:i];
-            _sectionFooterHeightDict[@(i)] = @(footerHeight);
+        }else{
+            footerHeight = self.sectionFooterHeight ? self.sectionFooterHeight(i) : 0;
         }
+        _sectionFooterHeightDict[@(i)] = @(footerHeight);
         
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[@"section"] = @(i);

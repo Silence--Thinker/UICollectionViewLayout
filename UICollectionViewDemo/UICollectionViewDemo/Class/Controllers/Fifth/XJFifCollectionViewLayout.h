@@ -12,10 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 @class XJFifCollectionViewLayout;
 @protocol RETEditionRightListLayoutDelegate <NSObject>
 
+@required
 - (CGFloat)layout:(XJFifCollectionViewLayout *)layout sectionHeaderHeight:(NSInteger)section;
-
 - (CGFloat)layout:(XJFifCollectionViewLayout *)layout sectionFooterHeight:(NSInteger)section;
 
+@optional
 - (void)layout:(XJFifCollectionViewLayout *)layout section:(NSInteger)section;
 
 @end
@@ -28,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSMutableArray<NSNumber *> *alwaysTopHeaderArray;
 
 @property (nonatomic, copy) BOOL(^alwaysHeaderTop)(NSInteger section);
+@property (nonatomic, copy) CGFloat(^sectionHeaderHeight)(NSInteger section);
+@property (nonatomic, copy) CGFloat(^sectionFooterHeight)(NSInteger section);
+
 @property (nonatomic, weak) id<RETEditionRightListLayoutDelegate> delegate;
 
 @end

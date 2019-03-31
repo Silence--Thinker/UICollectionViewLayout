@@ -68,12 +68,12 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(300, 60);
+    return CGSizeMake(300, 40);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    return CGSizeMake(200, 30);
+    return CGSizeMake(200, 20);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -94,7 +94,13 @@
         layout.alwaysHeaderTop = ^BOOL(NSInteger section) {
             return (section == 0 || section == 1 ) ? YES : NO;
         };
-        layout.delegate = self;
+        layout.sectionHeaderHeight = ^CGFloat(NSInteger section) {
+            return 40;
+        };
+        layout.sectionFooterHeight = ^CGFloat(NSInteger section) {
+            return 20;
+        };
+//        layout.delegate = self;
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 88, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 88) collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.delegate = self;
@@ -106,12 +112,12 @@
 
 - (CGFloat)layout:(XJFifCollectionViewLayout *)layout sectionHeaderHeight:(NSInteger)section
 {
-    return 60;
+    return 40;
 }
 
 - (CGFloat)layout:(XJFifCollectionViewLayout *)layout sectionFooterHeight:(NSInteger)section
 {
-    return 30;
+    return 20;
 }
 
 - (void)layout:(XJFifCollectionViewLayout *)layout section:(NSInteger)section
