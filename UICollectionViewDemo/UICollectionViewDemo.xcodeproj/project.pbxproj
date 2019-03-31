@@ -24,7 +24,7 @@
 		E875E48220FCBB1500FC884C /* XJForthCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E875E48120FCBB1500FC884C /* XJForthCollectionViewLayout.m */; };
 		E875E48520FDF36700FC884C /* XJDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E875E48420FDF36700FC884C /* XJDecorationView.m */; };
 		E875E48820FDF3A600FC884C /* XJLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = E875E48720FDF3A600FC884C /* XJLayoutAttributes.m */; };
-		E8D6DA03224E28A7004C082C /* RETEditionRightListLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D6DA01224E28A7004C082C /* RETEditionRightListLayout.m */; };
+		E8D6DA03224E28A7004C082C /* XJFifCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D6DA01224E28A7004C082C /* XJFifCollectionViewLayout.m */; };
 		E8D6DA06224E28CB004C082C /* XJFifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D6DA05224E28CB004C082C /* XJFifthViewController.m */; };
 		E8D6DA09224E2969004C082C /* XJCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D6DA08224E2969004C082C /* XJCollectionHeaderView.m */; };
 /* End PBXBuildFile section */
@@ -62,8 +62,8 @@
 		E875E48420FDF36700FC884C /* XJDecorationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJDecorationView.m; sourceTree = "<group>"; };
 		E875E48620FDF3A600FC884C /* XJLayoutAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJLayoutAttributes.h; sourceTree = "<group>"; };
 		E875E48720FDF3A600FC884C /* XJLayoutAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJLayoutAttributes.m; sourceTree = "<group>"; };
-		E8D6DA01224E28A7004C082C /* RETEditionRightListLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETEditionRightListLayout.m; sourceTree = "<group>"; };
-		E8D6DA02224E28A7004C082C /* RETEditionRightListLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETEditionRightListLayout.h; sourceTree = "<group>"; };
+		E8D6DA01224E28A7004C082C /* XJFifCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJFifCollectionViewLayout.m; sourceTree = "<group>"; };
+		E8D6DA02224E28A7004C082C /* XJFifCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFifCollectionViewLayout.h; sourceTree = "<group>"; };
 		E8D6DA04224E28CB004C082C /* XJFifthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJFifthViewController.h; sourceTree = "<group>"; };
 		E8D6DA05224E28CB004C082C /* XJFifthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJFifthViewController.m; sourceTree = "<group>"; };
 		E8D6DA07224E2969004C082C /* XJCollectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJCollectionHeaderView.h; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 		E8D6DA00224E2894004C082C /* Fifth */ = {
 			isa = PBXGroup;
 			children = (
-				E8D6DA02224E28A7004C082C /* RETEditionRightListLayout.h */,
-				E8D6DA01224E28A7004C082C /* RETEditionRightListLayout.m */,
+				E8D6DA02224E28A7004C082C /* XJFifCollectionViewLayout.h */,
+				E8D6DA01224E28A7004C082C /* XJFifCollectionViewLayout.m */,
 				E8D6DA04224E28CB004C082C /* XJFifthViewController.h */,
 				E8D6DA05224E28CB004C082C /* XJFifthViewController.m */,
 			);
@@ -307,7 +307,7 @@
 				E875E47B20FCA68000FC884C /* XJSecondViewController.m in Sources */,
 				E875E48520FDF36700FC884C /* XJDecorationView.m in Sources */,
 				E875E47520FCA41100FC884C /* XJFirstCollectionViewLayout.m in Sources */,
-				E8D6DA03224E28A7004C082C /* RETEditionRightListLayout.m in Sources */,
+				E8D6DA03224E28A7004C082C /* XJFifCollectionViewLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

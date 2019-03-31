@@ -1,19 +1,19 @@
 //
-//  RETEditionRightListLayout.m
+//  XJFifCollectionViewLayout.m
 //  RETBCategoryList
 //
 //  Created by 曹秀锦 on 2019/3/29.
 //
 
-#import "RETEditionRightListLayout.h"
+#import "XJFifCollectionViewLayout.h"
 
-@interface RETEditionRightListLayout ()
+@interface XJFifCollectionViewLayout ()
 
-@property (nonatomic, copy) BOOL(^alwaysHeaderTop)(NSInteger section);
+@property (nonatomic, assign) NSInteger now_section;
 
 @end
 
-@implementation RETEditionRightListLayout
+@implementation XJFifCollectionViewLayout
 {
     NSMutableArray<NSDictionary *> *_sectionOffsetYArray;
 }
@@ -23,20 +23,7 @@
     if (self = [super init]) {
         self.minimumLineSpacing = 0;
         self.minimumInteritemSpacing = 0;
-        _sectionHeaderHeightDict = @{ @(0) : @(60),
-                                      @(1) : @(60),
-                                      @(2) : @(60),
-                                      @(3) : @(60),
-                                      @(4) : @(60)}.mutableCopy;
-        _sectionFooterHeightDict = @{ @(0) : @(30),
-                                      @(1) : @(30),
-                                      @(2) : @(30),
-                                      @(3) : @(30),
-                                      @(4) : @(30)}.mutableCopy;
-        _alwaysTopHeaderArray = [NSMutableArray array];
-        self.alwaysHeaderTop = ^BOOL(NSInteger section) {
-            return (section == 0 ) ? YES : NO;
-        };
+        _now_section = NSNotFound;
     }
     return self;
 }
@@ -46,36 +33,47 @@
     [super prepareLayout];
     
     CGFloat rowHeight = 200;    //self.itemSize.height;
-    CGFloat height = 0;
+    CGFloat totalHeight = 0;
     _sectionOffsetYArray = [NSMutableArray array];
     _alwaysTopHeaderArray = [NSMutableArray array];
+    _sectionFooterHeightDict = [NSMutableDictionary dictionary];
+    _sectionHeaderHeightDict = [NSMutableDictionary dictionary];
+    
     NSInteger section = [self.collectionView numberOfSections];
-    CGFloat alwaysHeight = 0;
     for (NSInteger i = 0; i < section; i++) {
-        CGFloat headerHeight = [self.sectionHeaderHeightDict[@(i)] doubleValue];
-
+        BOOL always = self.alwaysHeaderTop(i);
+        CGFloat headerHeight = 0;
+        CGFloat footerHeight = 0;
+        if ([self.delegate respondsToSelector:@selector(layout:sectionHeaderHeight:)]) {
+            headerHeight = [self.delegate layout:self sectionHeaderHeight:i];
+            _sectionHeaderHeightDict[@(i)] = @(headerHeight);
+        }
+        
+        if ([self.delegate respondsToSelector:@selector(layout:sectionFooterHeight:)]) {
+            footerHeight = [self.delegate layout:self sectionFooterHeight:i];
+            _sectionFooterHeightDict[@(i)] = @(footerHeight);
+        }
+        
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[@"section"] = @(i);
-        dict[@"header"] = @(height);
+        dict[@"header"] = @(totalHeight);
         if (headerHeight > 0) {
-            height += headerHeight;
+            totalHeight += headerHeight;
         }
         
         NSInteger rowCount = [self.collectionView numberOfItemsInSection:i];
-        height += (rowCount * rowHeight);
+        totalHeight += (rowCount * rowHeight);
         
-        CGFloat footerHeight = [self.sectionFooterHeightDict[@(i)] doubleValue];
         if (footerHeight > 0) {
-            height += footerHeight;
+            totalHeight += footerHeight;
         }
-        BOOL always = self.alwaysHeaderTop(i);
+        
         if (always) {
-            height -= headerHeight;
+            totalHeight -= headerHeight;
             [_alwaysTopHeaderArray addObject:@(i)];
         }
-        dict[@"footer"] = @(height);
+        dict[@"footer"] = @(totalHeight);
         [_sectionOffsetYArray addObject:dict];
-        alwaysHeight = always ? headerHeight : 0;
     }
 }
 
@@ -110,10 +108,14 @@
     CGFloat currentHeaderHeight = 0;
     if (currentSection != NSNotFound) {
         currentHeaderHeight = [_sectionHeaderHeightDict[@(currentSection)] doubleValue];
+        if ([self.delegate respondsToSelector:@selector(layout:section:)] && _now_section != currentSection) {
+            [self.delegate layout:self section:currentSection];
+        }
+        _now_section = currentSection;
     }
     UICollectionViewLayoutAttributes *currentHeaderAttribute = [self exitSectionHeader:currentSection inArray:array];
     
-    // 总悬浮
+    // 总是悬浮的header
     NSArray<NSNumber *> *minArray = [self findNeedTopHeader:currentSection];
     __block CGFloat temp_height = currentOffset;
     __block BOOL isCurrentAlwaysTop = NO;
@@ -137,6 +139,7 @@
         }
     }];
     
+    // 当前sectionHeader位置
     CGFloat headerOffsetY = temp_height;
     if (currentSection != NSNotFound ) {
         if (isCurrentAlwaysTop) {
@@ -155,7 +158,7 @@
         currentHeaderAttribute.zIndex = 100;
     }
     if (currentHeaderAttribute == nil && currentSection != NSNotFound && [self.sectionHeaderHeightDict[@(currentSection)] doubleValue]) {
-        NSLog(@"======================没有section");
+        //        NSLog(@"======================没有section");
         UICollectionViewLayoutAttributes *headerAttribute = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:currentSection]];
         headerAttribute.frame = CGRectMake(0, headerOffsetY, currentRect.size.width, currentHeaderHeight);
         headerAttribute.zIndex = 100;

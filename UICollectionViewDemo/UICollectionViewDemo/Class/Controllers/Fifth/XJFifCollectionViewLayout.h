@@ -9,24 +9,25 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class RETEditionRightListLayout;
+@class XJFifCollectionViewLayout;
 @protocol RETEditionRightListLayoutDelegate <NSObject>
 
-- (CGFloat)layout:(RETEditionRightListLayout *)layout sectionHeaderHeight:(NSInteger)section;
+- (CGFloat)layout:(XJFifCollectionViewLayout *)layout sectionHeaderHeight:(NSInteger)section;
 
-- (CGFloat)layout:(RETEditionRightListLayout *)layout sectionFooterHeight:(NSInteger)section;
+- (CGFloat)layout:(XJFifCollectionViewLayout *)layout sectionFooterHeight:(NSInteger)section;
 
-- (void)layout:(RETEditionRightListLayout *)layout section:(NSInteger)section;
+- (void)layout:(XJFifCollectionViewLayout *)layout section:(NSInteger)section;
 
 @end
 
-@interface RETEditionRightListLayout : UICollectionViewFlowLayout
+@interface XJFifCollectionViewLayout : UICollectionViewFlowLayout
 
 @property (nonatomic, strong) NSMutableDictionary *sectionHeaderHeightDict;
 @property (nonatomic, strong) NSMutableDictionary *sectionFooterHeightDict;
 
 @property (nonatomic, copy) NSMutableArray<NSNumber *> *alwaysTopHeaderArray;
 
+@property (nonatomic, copy) BOOL(^alwaysHeaderTop)(NSInteger section);
 @property (nonatomic, weak) id<RETEditionRightListLayoutDelegate> delegate;
 
 @end
