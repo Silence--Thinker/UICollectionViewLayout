@@ -24,6 +24,9 @@
 		E875E48220FCBB1500FC884C /* XJForthCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E875E48120FCBB1500FC884C /* XJForthCollectionViewLayout.m */; };
 		E875E48520FDF36700FC884C /* XJDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E875E48420FDF36700FC884C /* XJDecorationView.m */; };
 		E875E48820FDF3A600FC884C /* XJLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = E875E48720FDF3A600FC884C /* XJLayoutAttributes.m */; };
+		E8D6DA03224E28A7004C082C /* RETEditionRightListLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D6DA01224E28A7004C082C /* RETEditionRightListLayout.m */; };
+		E8D6DA06224E28CB004C082C /* XJFifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D6DA05224E28CB004C082C /* XJFifthViewController.m */; };
+		E8D6DA09224E2969004C082C /* XJCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D6DA08224E2969004C082C /* XJCollectionHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,12 @@
 		E875E48420FDF36700FC884C /* XJDecorationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJDecorationView.m; sourceTree = "<group>"; };
 		E875E48620FDF3A600FC884C /* XJLayoutAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJLayoutAttributes.h; sourceTree = "<group>"; };
 		E875E48720FDF3A600FC884C /* XJLayoutAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJLayoutAttributes.m; sourceTree = "<group>"; };
+		E8D6DA01224E28A7004C082C /* RETEditionRightListLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETEditionRightListLayout.m; sourceTree = "<group>"; };
+		E8D6DA02224E28A7004C082C /* RETEditionRightListLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETEditionRightListLayout.h; sourceTree = "<group>"; };
+		E8D6DA04224E28CB004C082C /* XJFifthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJFifthViewController.h; sourceTree = "<group>"; };
+		E8D6DA05224E28CB004C082C /* XJFifthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJFifthViewController.m; sourceTree = "<group>"; };
+		E8D6DA07224E2969004C082C /* XJCollectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJCollectionHeaderView.h; sourceTree = "<group>"; };
+		E8D6DA08224E2969004C082C /* XJCollectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJCollectionHeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +123,8 @@
 				E875E45020FC8A7000FC884C /* ViewController.m */,
 				E875E46D20FC9AA800FC884C /* XJCollectionViewCell.h */,
 				E875E46E20FC9AA800FC884C /* XJCollectionViewCell.m */,
+				E8D6DA07224E2969004C082C /* XJCollectionHeaderView.h */,
+				E8D6DA08224E2969004C082C /* XJCollectionHeaderView.m */,
 				E875E48320FDF36700FC884C /* XJDecorationView.h */,
 				E875E48420FDF36700FC884C /* XJDecorationView.m */,
 				E875E48620FDF3A600FC884C /* XJLayoutAttributes.h */,
@@ -125,6 +136,7 @@
 		E875E45220FC8A7000FC884C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E8D6DA00224E2894004C082C /* Fifth */,
 				E875E45A20FC915500FC884C /* First */,
 				E875E45B20FC915500FC884C /* Second */,
 				E875E45D20FC915500FC884C /* Third */,
@@ -196,6 +208,17 @@
 				E875E46220FC91CC00FC884C /* XJThirdCollectionViewLayout.m */,
 			);
 			path = Third;
+			sourceTree = "<group>";
+		};
+		E8D6DA00224E2894004C082C /* Fifth */ = {
+			isa = PBXGroup;
+			children = (
+				E8D6DA02224E28A7004C082C /* RETEditionRightListLayout.h */,
+				E8D6DA01224E28A7004C082C /* RETEditionRightListLayout.m */,
+				E8D6DA04224E28CB004C082C /* XJFifthViewController.h */,
+				E8D6DA05224E28CB004C082C /* XJFifthViewController.m */,
+			);
+			path = Fifth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +293,10 @@
 			files = (
 				E875E44620FC89D100FC884C /* main.m in Sources */,
 				E875E46620FC92A600FC884C /* XJThirdViewController.m in Sources */,
+				E8D6DA09224E2969004C082C /* XJCollectionHeaderView.m in Sources */,
 				E875E48220FCBB1500FC884C /* XJForthCollectionViewLayout.m in Sources */,
 				E875E46F20FC9AA800FC884C /* XJCollectionViewCell.m in Sources */,
+				E8D6DA06224E28CB004C082C /* XJFifthViewController.m in Sources */,
 				E875E48820FDF3A600FC884C /* XJLayoutAttributes.m in Sources */,
 				E875E45620FC8A7000FC884C /* ViewController.m in Sources */,
 				E875E47F20FCBAEE00FC884C /* XJForthViewController.m in Sources */,
@@ -282,6 +307,7 @@
 				E875E47B20FCA68000FC884C /* XJSecondViewController.m in Sources */,
 				E875E48520FDF36700FC884C /* XJDecorationView.m in Sources */,
 				E875E47520FCA41100FC884C /* XJFirstCollectionViewLayout.m in Sources */,
+				E8D6DA03224E28A7004C082C /* RETEditionRightListLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

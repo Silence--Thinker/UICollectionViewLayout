@@ -67,8 +67,8 @@
 {
     if (!_dataList) {
         NSMutableArray *arrayM = [NSMutableArray array];
-        NSArray *titleArray = @[@"线性collecView布局", @"圆形collectionView布局", @"瀑布流collectionView布局", @"collectionView布局一览"];
-        NSArray *controllerArray = @[@"XJFirstViewController", @"XJSecondViewController", @"XJThirdViewController", @"XJForthViewController"];
+        NSArray *titleArray = @[@"线性collecView布局", @"圆形collectionView布局", @"瀑布流collectionView布局", @"collectionView布局一览", @"collectionView布局组吸顶"];
+        NSArray *controllerArray = @[@"XJFirstViewController", @"XJSecondViewController", @"XJThirdViewController", @"XJForthViewController", @"XJFifthViewController"];
         for (NSInteger i = 0; i < titleArray.count; i++) {
             NSMutableDictionary *dict = [NSMutableDictionary dictionary];
             dict[@"title"] = titleArray[i];
