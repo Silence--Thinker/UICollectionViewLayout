@@ -11,7 +11,7 @@
 #import "XJCollectionViewCell.h"
 #import "XJCollectionHeaderView.h"
 
-#import "XJFifCollectionViewLayout.h"
+#import "XJFifthCollectionViewLayout.h"
 
 @interface XJFifthViewController () <UICollectionViewDelegate, UICollectionViewDataSource, RETEditionRightListLayoutDelegate>
 
@@ -90,7 +90,7 @@
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        XJFifCollectionViewLayout *layout = [[XJFifCollectionViewLayout alloc] init];
+        XJFifthCollectionViewLayout *layout = [[XJFifthCollectionViewLayout alloc] init];
         layout.alwaysHeaderTop = ^BOOL(NSInteger section) {
             return (section == 0 || section == 1 ) ? YES : NO;
         };
@@ -110,17 +110,17 @@
     return _collectionView;
 }
 
-- (CGFloat)layout:(XJFifCollectionViewLayout *)layout sectionHeaderHeight:(NSInteger)section
+- (CGFloat)layout:(XJFifthCollectionViewLayout *)layout sectionHeaderHeight:(NSInteger)section
 {
     return 40;
 }
 
-- (CGFloat)layout:(XJFifCollectionViewLayout *)layout sectionFooterHeight:(NSInteger)section
+- (CGFloat)layout:(XJFifthCollectionViewLayout *)layout sectionFooterHeight:(NSInteger)section
 {
     return 20;
 }
 
-- (void)layout:(XJFifCollectionViewLayout *)layout section:(NSInteger)section
+- (void)layout:(XJFifthCollectionViewLayout *)layout section:(NSInteger)section
 {
     NSLog(@"============================section==%zd", section);
 }

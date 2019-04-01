@@ -1,19 +1,23 @@
 //
-//  XJFifCollectionViewLayout.m
+//  XJFifthCollectionViewLayout.m
 //  RETBCategoryList
 //
 //  Created by 曹秀锦 on 2019/3/29.
 //
 
-#import "XJFifCollectionViewLayout.h"
+#import "XJFifthCollectionViewLayout.h"
 
-@interface XJFifCollectionViewLayout ()
+@interface XJFifthCollectionViewLayout ()
+
+@property (nonatomic, strong) NSMutableDictionary<NSNumber *, NSNumber *> *sectionHeaderHeightDict;
+@property (nonatomic, strong) NSMutableDictionary<NSNumber *, NSNumber *> *sectionFooterHeightDict;
+@property (nonatomic, strong) NSMutableArray<NSNumber *> *alwaysTopHeaderArray;
 
 @property (nonatomic, assign) NSInteger now_section;
 
 @end
 
-@implementation XJFifCollectionViewLayout
+@implementation XJFifthCollectionViewLayout
 {
     NSMutableArray<NSDictionary *> *_sectionOffsetYArray;
 }
